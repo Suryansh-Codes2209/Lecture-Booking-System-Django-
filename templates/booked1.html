@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{%block title%}
+Booking
+{%endblock title%}
+
+
+
+{%block body%}
+  <main id="main" data-aos="fade-in">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs">
+      <div class="container">
+        <h2>Teacher/Staff Portal</h2>
+        <p>Whiteoak consultants</p>
+      </div>
+    </div><!-- End Breadcrumbs -->
+
+    
+    <br>
+    <div class = container>
+        <h1 style="color:blue;text-align:center; background-image: linear-gradient(to right , #f9989f , #fccb8f , #faf096); border-raduis:6px ; padding: 3px 6px ;">List of Booked Lectures</h1>
+        <br>
+        <table class="table table-dark" id="Datatables">
+            <thead>
+              <tr>
+                <th scope="col">date</th>
+                <th scope="col">time</th>
+                <th scope="col">lecture</th>
+                <th scope="col">name</th>
+                <th scope="col">email</th>
+                <th scope="col">phone</th>
+                <th scope="col">college</th>
+                <th scope="col">branch</th>
+              </tr>
+            </thead>
+            <tbody class="table-group-divider">
+              {% for booked in Book%}
+              <tr>
+                <td>{{ booked.date  }}</td>
+                <td>{{ booked.time }}</td>
+                <td>{{ booked.lecture  }}</td>
+                <td>{{ booked.name  }}</td>
+                <td>{{ booked.email  }}</td>
+                <td>{{ booked.phone }}</td>
+                <td>{{ booked.college  }}</td>
+                <td>{{ booked.branch  }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+    <br>
+        </div>
+
+        <div class= container>
+        <a href = "/booked">
+        <button style="color:black;text-align:center; background-image: linear-gradient(to right , #f9989f , #fccb8f , #faf096); border-raduis:6px ; padding: 3px 6px ;  
+    
+        height:50px; width:250px ; border:4px ; margin-left:500px  ; top: 800px"
+        
+        type="button" class="btn btn-light">Back to Menu</button></a> </div>
+
+  </main><!-- End #main -->
+
+
+{% endblock body %}

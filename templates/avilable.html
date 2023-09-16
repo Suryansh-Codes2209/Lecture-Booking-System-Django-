@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{%block title%}
+Booking
+{%endblock title%}
+
+
+
+{%block body%}
+  <main id="main" data-aos="fade-in">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs">
+      <div class="container">
+        <h2>Available Lecture Portal</h2>
+        <p>Whiteoak consultants</p>
+      </div>
+    </div><!-- End Breadcrumbs -->
+    <br>
+
+    <div class=container>
+    <h1 style="color:blue;text-align:center;background-image: linear-gradient(to right , #f9989f , #fccb8f , #faf096); border-raduis:6px ; padding: 3px 6px ;">Available Lectures</h1>
+      <br> <br>
+
+   
+    <table class="table table-dark" id="Datatables">
+      <thead>
+        <tr>
+          <th scope="col">Lecture_ID</th>
+          <th scope="col">Faculty_Name</th>
+          <th scope="col">Subject</th>
+          <th scope="col">Date</th>
+          <th scope="col">Time</th>
+        </tr>
+      </thead>
+      <tbody class="table-group-divider">
+        {% for Lecture in Lectures%}
+        <tr>
+          <td>{{ Lecture.Lecture_ID  }}</td>
+          <td>{{ Lecture.Faculty_Name  }}</td>
+          <td>{{ Lecture.Subject  }}</td>
+          <td>{{ Lecture.Date  }}</td>
+          <td>{{ Lecture.Time  }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+
+  
+    
+
+    </div>
+    
+
+  </main><!-- End #main -->
+
+{% endblock body %}

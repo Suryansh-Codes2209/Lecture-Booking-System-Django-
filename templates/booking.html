@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+
+{%block title%}
+Booking
+{%endblock title%}
+
+
+
+{%block body%}
+  <main id="main" data-aos="fade-in">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs">
+      <div class="container">
+        <h2>Lecture Booking Portal</h2>
+        <p>Whiteoak consultants</p>
+      </div>
+    </div><!-- End Breadcrumbs -->
+
+  
+{% if messages %}
+{% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+     <strong> {{ message }} </strong>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+{% endif %}
+
+    <br>
+
+    <div class= container>
+      <h1 style="color:blue;text-align:center; background-image: linear-gradient(to right , #f9989f , #fccb8f , #faf096); border-raduis:6px ; padding: 3px 6px ;">Book your Lectures Here</h1><br>
+      <h2 style="color:blue;text-align:center;background-image: linear-gradient(to right , #f9989f , #fccb8f , #faf096); border-raduis:6px ; padding: 3px 6px ;">* Please Check Lecture Schedule before Booking</h2>
+
+    <form  action='/booking'  method='post'>
+    {% csrf_token %}
+      <div class="form-row">
+        <div class="col-md-4 mb-3">
+
+          <!-- Calendar -->
+          
+          <label for="date" class="col-1 col-form-label">Date</label>
+		<div class="col-5">
+		<div class="input-group date" id="datepicker">
+			<input type="text" class="form-control" id="date" placeholder="YYYY-MM-DD" name="date" required/>
+			<span class="input-group-append">
+			<span class="input-group-text bg-light d-block">
+				<i class="fa fa-calendar"></i>
+			</span>
+			</span>
+		</div>
+		</div>
+  </div>
+
+
+ <!-- Calendar End  -->
+
+
+ <!-- Time Function  -->
+
+<div class="col-md-4 mb-3">
+               <label for="time">Time</label>
+                <div class="input-group date" id="timePicker">
+                    <input type="text" class="form-control timePicker"  placeholder="HH:MM:SS"  name ="time" required>
+                    <span class="input-group-addon"><i class="fa fa-clock-o" aria-hidden="true"></i></span>
+                </div>
+              </div>
+<!-- Time Function End -->
+
+<!-- Select Function End -->
+<div class="col-md-4 mb-3">
+
+  
+  <label for="validationServer01">Select your Lecture</label>
+<select class="form-select" aria-label="Default select example" name="lecture" required>
+  
+  <option selected>Select your Lecture</option>
+  {% for select in Lectures%}
+  <option >{{select.Lecture_ID}}-{{select.Faculty_Name}}-{{select.Subject}}</option>
+  {% endfor %}
+</select>
+
+</div>
+
+
+
+<div class="col-md-4 mb-3">
+          <label for="validationServer01">Full name</label>
+          <input type="text" class="form-control is-valid" id="name" name="name" placeholder="Full name" value="Suryansh Chaudhary" required>
+          
+        </div>
+        <div class="col-md-4 mb-3">
+          <label for="validationServer02">Email</label>
+          <input type="text" class="form-control is-valid" id="email" name="email" placeholder="Last name" value="xyz@gmail.com" required>
+         
+        </div>
+        
+      
+        <div class="col-md-6 mb-3">
+          <label for="validationServer03">Phone No.</label>
+          <input type="text" class="form-control is-valid" name="phone" id="phone" placeholder="+91" required>
+          
+        </div>
+        <div class="col-md-3 mb-3">
+          <label for="validationServer04">College</label>
+          <input type="text" class="form-control is-valid" id="college" name="college" placeholder="College" required>
+          
+        </div>
+        <div class="col-md-3 mb-3">
+          <label for="validationServer05">Branch</label>
+          <input type="text" class="form-control is-valid" id="branch" name="branch" placeholder="Branch" required>
+         
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="form-check">
+          <input class="form-check-input is-valid" type="checkbox" value="" id="invalidCheck3" required>
+          <label class="form-check-label" for="validCheck3">
+            Agree to terms and conditions
+          </label>
+          <div class="valid-feedback">
+            You must agree before submitting.
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-primary" type="submit">Book Lecture</button>
+    </form>
+    
+    </div>
+    
+    
+
+  </main><!-- End #main -->
+
+{% endblock body %}

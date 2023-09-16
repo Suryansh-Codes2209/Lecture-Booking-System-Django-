@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{%block title%}
+Booking
+{%endblock title%}
+
+
+
+{%block body%}
+  <main id="main" data-aos="fade-in">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <div class="breadcrumbs">
+      <div class="container">
+        <h2>Teacher/Staff Portal</h2>
+        <p>Whiteoak consultants</p>
+      </div>
+    </div><!-- End Breadcrumbs -->
+
+    
+    <br>
+    <div class = container>
+    
+    <h1 style="color:blue;text-align:center; background-image: linear-gradient(to right , #f9989f , #fccb8f , #faf096); border-raduis:6px ; padding: 3px 6px ;">View Booked Lectures || Update schedule Lectures</h1>
+    <br>
+    <a href="/booked1">
+    <button  style="color:black;text-align:center; background-image: linear-gradient(to right , #f9989f , #fccb8f , #faf096); border-raduis:6px ; padding: 3px 6px ;  
+    
+      height:50px; width:250px ; border:4px ; margin-left:500px" type="button" class="btn btn-light">Booked Lectures</button></a>
+
+    <br>
+    <br>
+    <a href="/admin">
+    <button style="color:black;text-align:center; background-image: linear-gradient(to right , #f9989f , #fccb8f , #faf096); border-raduis:6px ; padding: 3px 6px ;  
+    
+    height:50px; width:250px ; border:4px ; margin-left:500px  ; top: 800px"
+    
+    type="button" class="btn btn-light">Update Lecture</button></a>
+
+    </div>
+    <br>
+    
+
+  </main><!-- End #main -->
+
+
+{% endblock body %}
